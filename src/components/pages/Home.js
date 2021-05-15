@@ -11,7 +11,7 @@ const Home = () => {
           This is todo list application. I have created this app using React
           hooks.
         </p>
-        <small>useState, useEffect, useContext</small>
+        <small>useState, useEffect, useContext, useMemo</small>
         <p style={{ paddingTop: 15 }}>
           Go to :{" "}
           <Link className="btn btn-sm btn-info" to="/todos">
