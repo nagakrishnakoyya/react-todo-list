@@ -12,7 +12,7 @@ const AddTodo = () => {
 
   const { todoList, currentItem } = useContext(TodoContext);
   const [list, setList] = todoList;
-  const [current] = currentItem;
+  const [current, setCurrent] = currentItem;
   const [todo, setTodo] = useState(initialState);
   const { title, completed } = todo;
 
@@ -51,6 +51,12 @@ const AddTodo = () => {
     } else {
       setList(list.map((item) => (item.id === currentId ? todo : item)));
     }
+    resetInitialState();
+  };
+
+  const resetInitialState = () => {
+    setTodo(initialState);
+    setCurrent(null);
   };
 
   return (
@@ -88,7 +94,7 @@ const AddTodo = () => {
           </div>
           <button
             className="btn btn-primary btn-block"
-            onClick={() => addTodoHandler(current.id)}
+            onClick={() => addTodoHandler(current?.id)}
             disabled={!title}
           >
             {current ? "Update todo" : "Add todo"}
